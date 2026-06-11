@@ -1,3 +1,4 @@
+import Link from "next/link";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import AnimatedTitle from "@/components/ui/AnimatedTitle";
 import RotatingBadge from "@/components/ui/RotatingBadge";
@@ -78,12 +79,12 @@ export default function DiscoverSection() {
                   ))}
                 </div>
 
-                <a
-                  href="#carte"
+                <Link
+                  href="/commander"
                   className="btn-pill btn-pill-white inline-block"
                 >
                   Commander maintenant
-                </a>
+                </Link>
               </div>
             </div>
           </div>

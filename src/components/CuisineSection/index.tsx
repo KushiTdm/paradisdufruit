@@ -1,3 +1,4 @@
+import Link from "next/link";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import AnimatedTitle from "@/components/ui/AnimatedTitle";
 import RotatingBadge from "@/components/ui/RotatingBadge";
@@ -54,9 +55,9 @@ export default function CuisineSection() {
             </ScrollReveal>
 
             <ScrollReveal delay={0.3}>
-              <a href="#carte" className="btn-pill btn-pill-green inline-block">
+              <Link href="/carte" className="btn-pill btn-pill-green inline-block">
                 Voir notre carte
-              </a>
+              </Link>
             </ScrollReveal>
           </div>
 

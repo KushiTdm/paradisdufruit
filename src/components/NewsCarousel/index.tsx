@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import Carousel from "@/components/ui/Carousel";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import AnimatedTitle from "@/components/ui/AnimatedTitle";
@@ -25,8 +26,8 @@ export default function NewsCarousel() {
           </div>
 
           <ScrollReveal delay={0.2} direction="left">
-            <a
-              href="#actualites"
+            <Link
+              href="/actualites"
               className="hidden md:inline-flex items-center gap-2 font-body font-semibold text-sm group"
               style={{ color: "#204D36" }}
             >
@@ -38,17 +39,18 @@ export default function NewsCarousel() {
               >
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
-            </a>
+            </Link>
           </ScrollReveal>
         </div>
 
-        <ScrollReveal delay={0.15}>
-          <Carousel slideWidth="calc(33.333% - 1rem)" gap={24}>
-            {newsItems.map((item) => (
-              <article
-                key={item.id}
-                className="group cursor-pointer"
-              >
+        {/* Carousel — sans wrap ScrollReveal pour préserver la mesure embla */}
+        <Carousel slideClassName="w-[82%] sm:w-[55%] md:w-[42%] lg:w-[calc(33.333%-1rem)]" gap={24}>
+          {newsItems.map((item) => (
+            <Link
+              key={item.id}
+              href={`/actualites/${item.slug}`}
+              className="block group cursor-pointer"
+            >
                 {/* Image */}
                 <div
                   className="relative overflow-hidden mb-5"
@@ -58,14 +60,14 @@ export default function NewsCarousel() {
                     src={item.image}
                     alt={item.title}
                     fill
-                    sizes="(max-width: 768px) 85vw, 33vw"
+                    sizes="(max-width: 640px) 82vw, (max-width: 1024px) 50vw, 33vw"
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                     loading="lazy"
                   />
                 </div>
 
                 {/* Meta */}
-                <div className="flex items-center gap-3 mb-3">
+                <div className="flex items-center gap-3 mb-3 flex-wrap">
                   <time
                     className="font-body text-xs"
                     style={{ color: "#204D36", opacity: 0.5 }}
@@ -101,24 +103,29 @@ export default function NewsCarousel() {
                   {item.excerpt}
                 </p>
 
-                <a
-                  href={`#${item.slug}`}
-                  className="inline-flex items-center gap-1.5 font-body text-sm font-semibold group/link"
+                <span
+                  className="inline-flex items-center gap-1.5 font-body text-sm font-semibold"
                   style={{ color: "#EA6660" }}
                 >
                   Lire la suite
                   <svg
                     width="14" height="14" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"
-                    className="transition-transform duration-200 group-hover/link:translate-x-0.5"
+                    className="transition-transform duration-200 group-hover:translate-x-0.5"
                   >
                     <path d="M5 12h14M12 5l7 7-7 7" />
-                  </svg>
-                </a>
-              </article>
-            ))}
-          </Carousel>
-        </ScrollReveal>
+                </svg>
+              </span>
+            </Link>
+          ))}
+        </Carousel>
+
+        {/* Mobile CTA */}
+        <div className="mt-6 md:hidden">
+          <Link href="/actualites" className="btn-pill btn-pill-outline w-full text-center block">
+            Toutes les actualités
+          </Link>
+        </div>
       </div>
     </section>
   );

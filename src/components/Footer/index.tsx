@@ -1,29 +1,37 @@
+import Link from "next/link";
 import RotatingBadge from "@/components/ui/RotatingBadge";
 import AnimatedTitle from "@/components/ui/AnimatedTitle";
 
 const footerLinks = {
   "Notre univers": [
-    { label: "La carte", href: "#carte" },
-    { label: "Nos restaurants", href: "#restaurants" },
-    { label: "Notre cuisine", href: "#cuisine" },
-    { label: "Nos engagements", href: "#engagements" },
-    { label: "Actualités", href: "#actualites" },
+    { label: "La carte", href: "/carte" },
+    { label: "Nos restaurants", href: "/restaurants" },
+    { label: "Notre cuisine", href: "/cuisine" },
+    { label: "Nos engagements", href: "/engagements" },
+    { label: "Actualités", href: "/actualites" },
   ],
   "Le groupe": [
-    { label: "Notre histoire", href: "#histoire" },
-    { label: "Nos valeurs", href: "#valeurs" },
-    { label: "Devenir franchisé", href: "#franchise" },
-    { label: "Nous rejoindre", href: "#recrutement" },
-    { label: "Presse", href: "#presse" },
+    { label: "Notre histoire", href: "/histoire" },
+    { label: "Nos valeurs", href: "/valeurs" },
+    { label: "Devenir franchisé", href: "/franchise" },
+    { label: "Nous rejoindre", href: "/recrutement" },
+    { label: "Presse", href: "/presse" },
   ],
   "Besoin d'aide": [
-    { label: "FAQ", href: "#faq" },
-    { label: "Commander en ligne", href: "#commander" },
-    { label: "Carte fidélité", href: "#fidelite" },
-    { label: "Contact", href: "#contact" },
-    { label: "Accessibilité", href: "#accessibilite" },
+    { label: "FAQ", href: "/faq" },
+    { label: "Commander en ligne", href: "/commander" },
+    { label: "Carte fidélité", href: "/fidelite" },
+    { label: "Contact", href: "/contact" },
+    { label: "Accessibilité", href: "/accessibilite" },
   ],
 };
+
+const legalLinks = [
+  { label: "Mentions légales", href: "/mentions-legales" },
+  { label: "Politique de confidentialité", href: "/confidentialite" },
+  { label: "CGU", href: "/cgu" },
+  { label: "Cookies", href: "/cookies" },
+];
 
 const socials = [
   {
@@ -57,14 +65,14 @@ const socials = [
 
 export default function Footer() {
   return (
-    <footer style={{ backgroundColor: "#204D36" }} id="contact">
+    <footer style={{ backgroundColor: "#204D36" }}>
       <div className="container-wide pt-16 pb-8">
         {/* Top row */}
         <div className="grid lg:grid-cols-4 gap-12 pb-12 border-b border-white/10">
           {/* Logo + socials */}
           <div>
-            <a
-              href="#"
+            <Link
+              href="/"
               className="inline-block mb-6"
               aria-label="L'Éden Fruité"
             >
@@ -74,7 +82,7 @@ export default function Footer() {
               <span className="font-script text-xl" style={{ color: "#FED117" }}>
                 Fruité
               </span>
-            </a>
+            </Link>
 
             <p className="font-body text-sm leading-relaxed mb-6" style={{ color: "white", opacity: 0.55 }}>
               Le restaurant healthy et fruité depuis 2005. 80+ adresses en France pour manger frais, sain et savoureux.
@@ -109,13 +117,13 @@ export default function Footer() {
               <ul className="space-y-3">
                 {links.map((link) => (
                   <li key={link.label}>
-                    <a
+                    <Link
                       href={link.href}
                       className="font-body text-sm transition-opacity duration-200 hover:opacity-100"
                       style={{ color: "white", opacity: 0.65 }}
                     >
                       {link.label}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -162,16 +170,16 @@ export default function Footer() {
           <p className="font-body text-xs" style={{ color: "white", opacity: 0.4 }}>
             © {new Date().getFullYear()} L&apos;Éden Fruité. Tous droits réservés.
           </p>
-          <div className="flex gap-6">
-            {["Mentions légales", "Politique de confidentialité", "CGU", "Cookies"].map((item) => (
-              <a
-                key={item}
-                href="#"
+          <div className="flex flex-wrap gap-x-6 gap-y-2 justify-center md:justify-end">
+            {legalLinks.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
                 className="font-body text-xs transition-opacity duration-200 hover:opacity-100"
                 style={{ color: "white", opacity: 0.4 }}
               >
-                {item}
-              </a>
+                {item.label}
+              </Link>
             ))}
           </div>
         </div>

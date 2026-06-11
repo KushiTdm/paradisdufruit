@@ -1,3 +1,4 @@
+import Link from "next/link";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import AnimatedTitle from "@/components/ui/AnimatedTitle";
 import Parallax from "@/components/ui/Parallax";
@@ -92,8 +93,8 @@ export default function BotanicSection() {
           </ScrollReveal>
 
           <ScrollReveal delay={0.3}>
-            <a
-              href="#cuisine"
+            <Link
+              href="/cuisine"
               className="inline-flex items-center gap-2 font-body font-semibold text-base text-white group"
             >
               Découvrir notre cuisine
@@ -104,7 +105,7 @@ export default function BotanicSection() {
               >
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
-            </a>
+            </Link>
           </ScrollReveal>
         </div>
 

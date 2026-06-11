@@ -1,3 +1,4 @@
+import Link from "next/link";
 import ScrollReveal from "@/components/ui/ScrollReveal";
 import RotatingBadge from "@/components/ui/RotatingBadge";
 
@@ -40,12 +41,12 @@ export default function PreFooter() {
                 </p>
               </div>
 
-              <a
-                href="#franchise"
+              <Link
+                href="/franchise"
                 className="btn-pill btn-pill-green inline-block self-start"
               >
                 En savoir plus
-              </a>
+              </Link>
 
               {/* Badge ananas */}
               <div className="absolute bottom-6 right-6 lg:bottom-10 lg:right-10">
@@ -94,12 +95,12 @@ export default function PreFooter() {
                 </p>
               </div>
 
-              <a
-                href="#recrutement"
+              <Link
+                href="/recrutement"
                 className="btn-pill btn-pill-coral inline-block self-start"
               >
                 Voir les offres
-              </a>
+              </Link>
 
               {/* Badge citron */}
               <div className="absolute bottom-6 right-6 lg:bottom-10 lg:right-10">

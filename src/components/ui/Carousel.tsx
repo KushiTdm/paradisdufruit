@@ -5,7 +5,8 @@ import useEmblaCarousel from "embla-carousel-react";
 
 type CarouselProps = {
   children: React.ReactNode[];
-  slideWidth?: string;
+  /** Tailwind responsive classes pour la largeur des slides, ex. `"w-[85%] sm:w-[48%] lg:w-[31%]"` */
+  slideClassName?: string;
   gap?: number;
   showArrows?: boolean;
   className?: string;
@@ -13,7 +14,7 @@ type CarouselProps = {
 
 export default function Carousel({
   children,
-  slideWidth = "85%",
+  slideClassName = "w-[85%] sm:w-[48%] lg:w-[31%]",
   gap = 24,
   showArrows = true,
   className = "",
@@ -54,8 +55,7 @@ export default function Carousel({
           {children.map((child, index) => (
             <div
               key={index}
-              className="embla__slide"
-              style={{ width: slideWidth, minWidth: slideWidth }}
+              className={`embla__slide flex-shrink-0 ${slideClassName}`}
             >
               {child}
             </div>
@@ -70,6 +70,7 @@ export default function Carousel({
             onClick={() => emblaApi?.scrollPrev()}
             disabled={!canScrollPrev}
             aria-label="Précédent"
+            type="button"
           >
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M15 18l-6-6 6-6" />
@@ -80,6 +81,7 @@ export default function Carousel({
             onClick={() => emblaApi?.scrollNext()}
             disabled={!canScrollNext}
             aria-label="Suivant"
+            type="button"
           >
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M9 18l6-6-6-6" />

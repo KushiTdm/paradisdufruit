@@ -1,15 +1,16 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { motion, AnimatePresence } from "motion/react";
 
 const navLinks = [
-  { label: "La carte", href: "#carte" },
-  { label: "Nos restaurants", href: "#restaurants" },
-  { label: "Notre cuisine", href: "#cuisine" },
-  { label: "Nos engagements", href: "#engagements" },
-  { label: "Actualités", href: "#actualites" },
-  { label: "Contact", href: "#contact" },
+  { label: "La carte", href: "/carte" },
+  { label: "Nos restaurants", href: "/restaurants" },
+  { label: "Notre cuisine", href: "/cuisine" },
+  { label: "Nos engagements", href: "/engagements" },
+  { label: "Actualités", href: "/actualites" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export default function Header() {
@@ -61,32 +62,32 @@ export default function Header() {
 
             {/* Desktop nav left */}
             <nav className="hidden lg:flex items-center gap-6">
-              <a
-                href="#carte"
+              <Link
+                href="/carte"
                 className="font-body text-sm font-500 transition-colors duration-200 hover:opacity-70"
                 style={{ color: scrolled ? "#204D36" : "white" }}
               >
                 La carte
-              </a>
-              <a
-                href="#restaurants"
+              </Link>
+              <Link
+                href="/restaurants"
                 className="font-body text-sm transition-colors duration-200 hover:opacity-70"
                 style={{ color: scrolled ? "#204D36" : "white" }}
               >
                 Nos restaurants
-              </a>
-              <a
-                href="#engagements"
+              </Link>
+              <Link
+                href="/engagements"
                 className="font-body text-sm transition-colors duration-200 hover:opacity-70"
                 style={{ color: scrolled ? "#204D36" : "white" }}
               >
                 Nos engagements
-              </a>
+              </Link>
             </nav>
 
             {/* Logo centré */}
-            <a
-              href="#"
+            <Link
+              href="/"
               className="absolute left-1/2 -translate-x-1/2 font-display text-xl lg:text-2xl tracking-tight transition-colors duration-300"
               style={{ color: scrolled ? "#204D36" : "white" }}
               aria-label="L'Éden Fruité - Accueil"
@@ -95,24 +96,26 @@ export default function Header() {
               <span className="font-script text-base lg:text-lg normal-case ml-1" style={{ color: "#EA6660" }}>
                 Fruité
               </span>
-            </a>
+            </Link>
 
             {/* CTAs desktop */}
             <div className="hidden lg:flex items-center gap-3">
-              <a
-                href="#carte"
+              <Link
+                href="/admin"
                 className="btn-pill text-sm"
                 style={{
-                  border: `2px solid ${scrolled ? "#204D36" : "white"}`,
-                  color: scrolled ? "#204D36" : "white",
+                  border: `2px solid ${scrolled ? "#204D36" : "rgba(255,255,255,.5)"}`,
+                  color: scrolled ? "#204D36" : "rgba(255,255,255,.85)",
                   background: "transparent",
+                  fontSize: 11,
+                  letterSpacing: '.04em',
                 }}
               >
-                La carte
-              </a>
-              <a href="#commander" className="btn-pill btn-pill-coral text-sm">
+                Espace franchise
+              </Link>
+              <Link href="/commander" className="btn-pill btn-pill-coral text-sm">
                 Commander
-              </a>
+              </Link>
             </div>
 
             {/* Mobile spacer */}
@@ -162,12 +165,20 @@ export default function Header() {
             </nav>
 
             <div className="container-wide pb-10 flex gap-4">
-              <a href="#carte" className="btn-pill btn-pill-white flex-1 text-center">
+              <Link
+                href="/carte"
+                onClick={() => setMenuOpen(false)}
+                className="btn-pill btn-pill-white flex-1 text-center"
+              >
                 La carte
-              </a>
-              <a href="#commander" className="btn-pill btn-pill-coral flex-1 text-center">
+              </Link>
+              <Link
+                href="/commander"
+                onClick={() => setMenuOpen(false)}
+                className="btn-pill btn-pill-coral flex-1 text-center"
+              >
                 Commander
-              </a>
+              </Link>
             </div>
           </motion.div>
         )}

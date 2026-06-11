@@ -60,16 +60,15 @@ export default function EngagementsCarousel() {
           ))}
         </div>
 
-        {/* Mobile carousel */}
+        {/* Mobile carousel — sans wrap ScrollReveal pour préserver la mesure embla */}
         <div className="lg:hidden">
-          <ScrollReveal delay={0.1}>
-            <Carousel slideWidth="80%" gap={16}>
-              {engagements.map((eng) => (
-                <div
-                  key={eng.id}
-                  className="rounded-3xl p-8 flex flex-col items-center text-center"
-                  style={{ backgroundColor: "white" }}
-                >
+          <Carousel slideClassName="w-[80%]" gap={16}>
+            {engagements.map((eng) => (
+              <div
+                key={eng.id}
+                className="rounded-3xl p-8 flex flex-col items-center text-center"
+                style={{ backgroundColor: "white" }}
+              >
                   <div
                     className="w-20 h-20 rounded-full flex items-center justify-center text-3xl mb-5 flex-shrink-0"
                     style={{ backgroundColor: "#FAF9F5" }}
@@ -85,13 +84,12 @@ export default function EngagementsCarousel() {
                   <h3 className="font-display text-2xl mb-3" style={{ color: "#204D36" }}>
                     {eng.title}
                   </h3>
-                  <p className="font-body text-sm leading-relaxed" style={{ color: "#204D36", opacity: 0.65 }}>
-                    {eng.description}
-                  </p>
-                </div>
-              ))}
-            </Carousel>
-          </ScrollReveal>
+                <p className="font-body text-sm leading-relaxed" style={{ color: "#204D36", opacity: 0.65 }}>
+                  {eng.description}
+                </p>
+              </div>
+            ))}
+          </Carousel>
         </div>
       </div>
     </section>

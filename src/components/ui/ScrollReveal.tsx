@@ -1,7 +1,8 @@
 "use client";
 
-import { motion, useInView } from "motion/react";
 import { useRef } from "react";
+import { useGSAP } from "@gsap/react";
+import { gsap, prefersReducedMotion } from "@/lib/gsap";
 
 type ScrollRevealProps = {
   children: React.ReactNode;
@@ -9,7 +10,16 @@ type ScrollRevealProps = {
   direction?: "up" | "down" | "left" | "right" | "none";
   className?: string;
   once?: boolean;
+  distance?: number;
 };
+
+const directionMap = {
+  up: { axis: "y", sign: 1 },
+  down: { axis: "y", sign: -1 },
+  left: { axis: "x", sign: 1 },
+  right: { axis: "x", sign: -1 },
+  none: { axis: "y", sign: 0 },
+} as const;
 
 export default function ScrollReveal({
   children,
@@ -17,32 +27,34 @@ export default function ScrollReveal({
   direction = "up",
   className = "",
   once = true,
+  distance = 40,
 }: ScrollRevealProps) {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once, margin: "-80px 0px" });
+  const ref = useRef<HTMLDivElement>(null);
 
-  const directionMap = {
-    up:    { y: 40, x: 0 },
-    down:  { y: -40, x: 0 },
-    left:  { y: 0, x: 40 },
-    right: { y: 0, x: -40 },
-    none:  { y: 0, x: 0 },
-  };
+  useGSAP(
+    () => {
+      if (prefersReducedMotion() || !ref.current) return;
 
-  const initial = { opacity: 0, ...directionMap[direction] };
-  const animate = isInView
-    ? { opacity: 1, y: 0, x: 0 }
-    : initial;
+      const { axis, sign } = directionMap[direction];
+      gsap.from(ref.current, {
+        [axis]: sign * distance,
+        autoAlpha: 0,
+        duration: 0.7,
+        ease: "power3.out",
+        delay,
+        scrollTrigger: {
+          trigger: ref.current,
+          start: "top 90%",
+          toggleActions: once ? "play none none none" : "play none none reverse",
+        },
+      });
+    },
+    { scope: ref }
+  );
 
   return (
-    <motion.div
-      ref={ref}
-      initial={initial}
-      animate={animate}
-      transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1], delay }}
-      className={className}
-    >
+    <div ref={ref} className={className}>
       {children}
-    </motion.div>
+    </div>
   );
 }

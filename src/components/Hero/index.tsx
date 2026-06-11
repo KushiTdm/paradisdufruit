@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { useGSAP } from "@gsap/react";
 import { gsap, prefersReducedMotion } from "@/lib/gsap";
 import RotatingBadge from "@/components/ui/RotatingBadge";
@@ -121,7 +122,7 @@ export default function Hero() {
 
           <h1
             className="hero-title title-display text-white mb-6"
-            style={{ fontSize: "clamp(3.5rem, 8vw, 7rem)" }}
+            style={{ fontSize: "clamp(2.75rem, 8vw, 7rem)" }}
           >
             <span className="word-mask">
               <span className="word-inner">Mangez</span>
@@ -151,18 +152,18 @@ export default function Hero() {
             {/* Wrappers animés par GSAP — la transition CSS des .btn-pill entre
                 en conflit avec les tweens si GSAP anime les boutons directement */}
             <div className="hero-cta">
-              <a href="#carte" className="btn-pill btn-pill-green text-base px-8 py-3">
+              <Link href="/carte" className="btn-pill btn-pill-green text-base px-8 py-3">
                 Je découvre
-              </a>
+              </Link>
             </div>
             <div className="hero-cta">
-              <a
-                href="#restaurants"
+              <Link
+                href="/restaurants"
                 className="btn-pill text-base px-8 py-3"
                 style={{ border: "2px solid white", color: "white", background: "transparent" }}
               >
                 Nos restaurants
-              </a>
+              </Link>
             </div>
           </div>
         </div>
