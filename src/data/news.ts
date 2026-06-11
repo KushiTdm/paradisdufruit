@@ -12,7 +12,7 @@ export const newsItems: NewsItem[] = [
   {
     id: 1,
     date: "15 Mai 2026",
-    title: "Nouvelle ouverture : Le Paradis du Fruit débarque à Lyon !",
+    title: "Nouvelle ouverture : L'Éden Fruité débarque à Lyon !",
     excerpt: "Après Paris, Bordeaux et Toulouse, c'est au tour de Lyon de découvrir notre univers fruité et coloré. Le restaurant ouvre ses portes le 1er juin.",
     tags: ["Ouverture", "Actualité"],
     image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80",
@@ -30,7 +30,7 @@ export const newsItems: NewsItem[] = [
   {
     id: 3,
     date: "18 Mars 2026",
-    title: "Le Paradis du Fruit récompensé au Green Restaurant Award",
+    title: "L'Éden Fruité récompensé au Green Restaurant Award",
     excerpt: "Nous sommes fiers d'avoir reçu le prix de la Restauration Éco-Responsable 2026 pour nos engagements en matière de circuit court et zéro déchet.",
     tags: ["Prix", "Engagement"],
     image: "https://images.unsplash.com/photo-1528605248644-14dd04022da1?w=600&q=80",

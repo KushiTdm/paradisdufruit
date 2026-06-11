@@ -1,6 +1,8 @@
-import Image from "next/image";
 import ScrollReveal from "@/components/ui/ScrollReveal";
+import AnimatedTitle from "@/components/ui/AnimatedTitle";
 import RotatingBadge from "@/components/ui/RotatingBadge";
+import Parallax from "@/components/ui/Parallax";
+import ParallaxImage from "@/components/ui/ParallaxImage";
 
 export default function CuisineSection() {
   return (
@@ -10,15 +12,17 @@ export default function CuisineSection() {
           {/* Texte */}
           <div className="order-2 lg:order-1">
             <ScrollReveal delay={0}>
-              <p className="subtitle-script mb-3">Au paradis du fruit</p>
+              <p className="subtitle-script mb-3">À l&apos;Éden Fruité</p>
             </ScrollReveal>
 
-            <ScrollReveal delay={0.1}>
-              <h2 className="title-display mb-6" style={{ color: "#204D36" }}>
-                Notre<br />
-                <span style={{ color: "#F5BBBB" }}>cuisine</span>
-              </h2>
-            </ScrollReveal>
+            <AnimatedTitle
+              className="title-display mb-6"
+              style={{ color: "#204D36" }}
+              segments={[
+                { text: "Notre", br: true },
+                { text: "cuisine", color: "#F5BBBB" },
+              ]}
+            />
 
             <ScrollReveal delay={0.2}>
               <p className="font-body text-base leading-relaxed mb-6" style={{ color: "#204D36", opacity: 0.75 }}>
@@ -59,43 +63,40 @@ export default function CuisineSection() {
           {/* Image + badge */}
           <ScrollReveal delay={0.1} direction="left" className="order-1 lg:order-2">
             <div className="relative">
-              <div
-                className="relative overflow-hidden"
+              <ParallaxImage
+                src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=800&q=85"
+                alt="Notre cuisine fraîche et colorée"
+                sizes="(max-width: 1024px) 100vw, 50vw"
                 style={{ borderRadius: "16px 48px 16px 48px", aspectRatio: "1/1" }}
-              >
-                <Image
-                  src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=800&q=85"
-                  alt="Notre cuisine fraîche et colorée"
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-cover"
-                  loading="lazy"
-                />
-              </div>
+              />
 
               {/* Badge rotatif */}
               <div className="absolute -top-6 -right-6 lg:-right-10">
-                <RotatingBadge
-                  text="• FAIT MAISON • CHAQUE JOUR •"
-                  emoji="🧑‍🍳"
-                  size={140}
-                  bgColor="#EA6660"
-                  textColor="white"
-                />
+                <Parallax speed={-0.4}>
+                  <RotatingBadge
+                    text="• FAIT MAISON • CHAQUE JOUR •"
+                    emoji="🧑‍🍳"
+                    size={140}
+                    bgColor="#EA6660"
+                    textColor="white"
+                  />
+                </Parallax>
               </div>
 
               {/* Tag flottant bas */}
-              <div
-                className="absolute -bottom-4 left-6 rounded-2xl px-5 py-3 shadow-lg"
-                style={{ backgroundColor: "#FED117" }}
-              >
-                <p className="font-display text-lg" style={{ color: "#204D36" }}>
-                  Ouvert 7j/7
-                </p>
-                <p className="font-body text-xs" style={{ color: "#204D36", opacity: 0.7 }}>
-                  11h30 – 22h00
-                </p>
-              </div>
+              <Parallax speed={0.35} className="absolute -bottom-4 left-6">
+                <div
+                  className="rounded-2xl px-5 py-3 shadow-lg"
+                  style={{ backgroundColor: "#FED117" }}
+                >
+                  <p className="font-display text-lg" style={{ color: "#204D36" }}>
+                    Ouvert 7j/7
+                  </p>
+                  <p className="font-body text-xs" style={{ color: "#204D36", opacity: 0.7 }}>
+                    11h30 – 22h00
+                  </p>
+                </div>
+              </Parallax>
             </div>
           </ScrollReveal>
         </div>

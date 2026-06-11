@@ -1,5 +1,6 @@
 import Carousel from "@/components/ui/Carousel";
 import ScrollReveal from "@/components/ui/ScrollReveal";
+import AnimatedTitle from "@/components/ui/AnimatedTitle";
 import { engagements } from "@/data/engagements";
 
 export default function EngagementsCarousel() {
@@ -9,14 +10,13 @@ export default function EngagementsCarousel() {
         {/* Header */}
         <div className="text-center mb-12">
           <ScrollReveal delay={0}>
-            <p className="subtitle-script mb-3">Au paradis du fruit</p>
+            <p className="subtitle-script mb-3">À l&apos;Éden Fruité</p>
           </ScrollReveal>
-          <ScrollReveal delay={0.1}>
-            <h2 className="title-display" style={{ color: "#204D36" }}>
-              Nos{" "}
-              <span style={{ color: "#F5BBBB" }}>engagements</span>
-            </h2>
-          </ScrollReveal>
+          <AnimatedTitle
+            className="title-display"
+            style={{ color: "#204D36" }}
+            segments={[{ text: "Nos" }, { text: "engagements", color: "#F5BBBB" }]}
+          />
         </div>
 
         {/* Desktop grid */}

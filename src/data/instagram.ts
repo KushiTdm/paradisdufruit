@@ -48,7 +48,7 @@ export const instaPosts: InstaPost[] = [
   {
     id: 7,
     image: "https://images.unsplash.com/photo-1589733955941-5eeaf752f6dd?w=400&q=80",
-    alt: "Smoothie tropical du paradis",
+    alt: "Smoothie tropical de l'Éden",
     likes: 1756,
     isReel: true,
   },

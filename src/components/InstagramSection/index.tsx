@@ -1,5 +1,6 @@
 import Image from "next/image";
 import ScrollReveal from "@/components/ui/ScrollReveal";
+import AnimatedTitle from "@/components/ui/AnimatedTitle";
 import { instaPosts } from "@/data/instagram";
 
 function ReelIcon() {
@@ -19,12 +20,11 @@ export default function InstagramSection() {
           <ScrollReveal delay={0}>
             <p className="subtitle-script mb-2">Suivez nous sur Insta</p>
           </ScrollReveal>
-          <ScrollReveal delay={0.1}>
-            <h2 className="title-display" style={{ color: "#204D36" }}>
-              Notre{" "}
-              <span style={{ color: "#EA6660" }}>univers</span>
-            </h2>
-          </ScrollReveal>
+          <AnimatedTitle
+            className="title-display"
+            style={{ color: "#204D36" }}
+            segments={[{ text: "Notre" }, { text: "univers", color: "#EA6660" }]}
+          />
         </div>
 
         {/* Grid décalée style masonry */}

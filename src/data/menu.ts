@@ -23,7 +23,7 @@ export const menuItems: MenuItem[] = [
   },
   {
     id: 3,
-    title: "Smoothie Paradis",
+    title: "Smoothie Éden",
     description: "Ananas, mangue, gingembre, lait de coco et graines de chia",
     tag: "Fraîcheur",
     image: "https://images.unsplash.com/photo-1589733955941-5eeaf752f6dd?w=600&q=80",

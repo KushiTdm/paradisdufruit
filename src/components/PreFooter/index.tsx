@@ -36,7 +36,7 @@ export default function PreFooter() {
                   Devenir<br />franchisé
                 </h3>
                 <p className="font-body text-sm leading-relaxed mb-8 max-w-xs" style={{ color: "#204D36", opacity: 0.75 }}>
-                  Rejoignez un réseau en pleine expansion et ouvrez votre propre restaurant Paradis du Fruit avec notre accompagnement complet.
+                  Rejoignez un réseau en pleine expansion et ouvrez votre propre restaurant L&apos;Éden Fruité avec notre accompagnement complet.
                 </p>
               </div>
 

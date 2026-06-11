@@ -1,5 +1,6 @@
 import Image from "next/image";
 import ScrollReveal from "@/components/ui/ScrollReveal";
+import AnimatedTitle from "@/components/ui/AnimatedTitle";
 
 const features = [
   {
@@ -36,15 +37,16 @@ export default function FeaturesGrid() {
   return (
     <section className="section-pad" style={{ backgroundColor: "#FAF9F5" }}>
       <div className="container-wide">
-        <ScrollReveal delay={0}>
-          <div className="text-center mb-12">
+        <div className="text-center mb-12">
+          <ScrollReveal delay={0}>
             <p className="subtitle-script mb-3">Pourquoi nous choisir</p>
-            <h2 className="title-display" style={{ color: "#204D36" }}>
-              Nos{" "}
-              <span style={{ color: "#EA6660" }}>atouts</span>
-            </h2>
-          </div>
-        </ScrollReveal>
+          </ScrollReveal>
+          <AnimatedTitle
+            className="title-display"
+            style={{ color: "#204D36" }}
+            segments={[{ text: "Nos" }, { text: "atouts", color: "#EA6660" }]}
+          />
+        </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {features.map((feature, i) => (

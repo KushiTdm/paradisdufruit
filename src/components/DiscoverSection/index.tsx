@@ -1,37 +1,42 @@
-import Image from "next/image";
 import ScrollReveal from "@/components/ui/ScrollReveal";
+import AnimatedTitle from "@/components/ui/AnimatedTitle";
 import RotatingBadge from "@/components/ui/RotatingBadge";
+import ScaleReveal from "@/components/ui/ScaleReveal";
+import ParallaxImage from "@/components/ui/ParallaxImage";
 
 export default function DiscoverSection() {
   return (
     <section className="section-pad overflow-hidden" style={{ backgroundColor: "#FAF9F5" }}>
       <div className="container-wide">
-        <ScrollReveal delay={0}>
-          <div className="text-center mb-10">
+        <div className="text-center mb-10">
+          <ScrollReveal delay={0}>
             <p className="subtitle-script mb-2">Le goût du moment</p>
-            <h2 className="title-display" style={{ color: "#204D36" }}>
-              À découvrir<br />
-              <span style={{ color: "#5CADC7" }}>cette saison</span>
-            </h2>
-          </div>
-        </ScrollReveal>
+          </ScrollReveal>
+          <AnimatedTitle
+            className="title-display"
+            style={{ color: "#204D36" }}
+            segments={[
+              { text: "À" },
+              { text: "découvrir", br: true },
+              { text: "cette", color: "#5CADC7" },
+              { text: "saison", color: "#5CADC7" },
+            ]}
+          />
+        </div>
 
-        <ScrollReveal delay={0.15}>
+        <ScaleReveal>
           <div
             className="relative overflow-hidden"
             style={{ backgroundColor: "#5CADC7", borderRadius: "32px" }}
           >
             <div className="grid lg:grid-cols-2 items-center">
               {/* Image side */}
-              <div className="relative" style={{ minHeight: "420px" }}>
-                <Image
-                  src="https://images.unsplash.com/photo-1550547660-d9450f859349?w=800&q=85"
-                  alt="Le burger végétal de la saison"
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                  className="object-cover"
-                  loading="lazy"
-                />
+              <ParallaxImage
+                src="https://images.unsplash.com/photo-1550547660-d9450f859349?w=800&q=85"
+                alt="Le burger végétal de la saison"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                style={{ minHeight: "420px" }}
+              >
                 {/* Badge rotatif sur l'image */}
                 <div className="absolute top-6 right-6">
                   <RotatingBadge
@@ -42,7 +47,7 @@ export default function DiscoverSection() {
                     textColor="#204D36"
                   />
                 </div>
-              </div>
+              </ParallaxImage>
 
               {/* Texte side */}
               <div className="p-8 lg:p-12">
@@ -82,7 +87,7 @@ export default function DiscoverSection() {
               </div>
             </div>
           </div>
-        </ScrollReveal>
+        </ScaleReveal>
       </div>
     </section>
   );

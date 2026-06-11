@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Carousel from "@/components/ui/Carousel";
 import ScrollReveal from "@/components/ui/ScrollReveal";
+import AnimatedTitle from "@/components/ui/AnimatedTitle";
 import { newsItems } from "@/data/news";
 
 export default function NewsCarousel() {
@@ -13,12 +14,14 @@ export default function NewsCarousel() {
             <ScrollReveal delay={0}>
               <p className="subtitle-script mb-2">Restez informés</p>
             </ScrollReveal>
-            <ScrollReveal delay={0.1}>
-              <h2 className="title-display" style={{ color: "#204D36" }}>
-                Nos<br />
-                <span style={{ color: "#EA6660" }}>actualités</span>
-              </h2>
-            </ScrollReveal>
+            <AnimatedTitle
+              className="title-display"
+              style={{ color: "#204D36" }}
+              segments={[
+                { text: "Nos", br: true },
+                { text: "actualités", color: "#EA6660" },
+              ]}
+            />
           </div>
 
           <ScrollReveal delay={0.2} direction="left">

@@ -1,4 +1,7 @@
 import ScrollReveal from "@/components/ui/ScrollReveal";
+import AnimatedTitle from "@/components/ui/AnimatedTitle";
+import Parallax from "@/components/ui/Parallax";
+import CountUp from "@/components/ui/CountUp";
 
 function PalmSvg() {
   return (
@@ -39,22 +42,29 @@ function FlowerSvg() {
   );
 }
 
+const stats = [
+  { value: 100, suffix: "%", label: "Ingrédients frais" },
+  { value: 0, label: "Additif artificiel" },
+  { value: 70, suffix: "%", label: "Produits locaux" },
+  { value: 20, label: "Ans d'expertise" },
+] as const;
+
 export default function BotanicSection() {
   return (
     <section
       className="relative section-pad overflow-hidden"
       style={{ backgroundColor: "#204D36" }}
     >
-      {/* Decorative botanics */}
-      <div className="absolute left-0 top-0 bottom-0 opacity-40 pointer-events-none select-none hidden lg:block">
+      {/* Decorative botanics — parallax */}
+      <Parallax speed={0.7} className="absolute left-0 top-0 bottom-0 opacity-40 pointer-events-none select-none hidden lg:block">
         <PalmSvg />
-      </div>
-      <div className="absolute right-0 top-0 opacity-35 pointer-events-none select-none hidden lg:block">
+      </Parallax>
+      <Parallax speed={-0.5} className="absolute right-0 top-0 opacity-35 pointer-events-none select-none hidden lg:block">
         <FlowerSvg />
-      </div>
-      <div className="absolute right-8 bottom-0 opacity-25 pointer-events-none select-none hidden xl:block" style={{ transform: "scaleX(-1)" }}>
+      </Parallax>
+      <Parallax speed={0.4} className="absolute right-8 bottom-0 opacity-25 pointer-events-none select-none hidden xl:block" style={{ transform: "scaleX(-1)" }}>
         <FlowerSvg />
-      </div>
+      </Parallax>
 
       <div className="container-wide relative z-10">
         <div className="max-w-2xl mx-auto text-center">
@@ -64,17 +74,20 @@ export default function BotanicSection() {
             </p>
           </ScrollReveal>
 
-          <ScrollReveal delay={0.1}>
-            <h2 className="title-display text-white mb-6">
-              Bien manger<br />
-              est un{" "}
-              <span style={{ color: "#F5BBBB" }}>plaisir</span>
-            </h2>
-          </ScrollReveal>
+          <AnimatedTitle
+            className="title-display text-white mb-6"
+            segments={[
+              { text: "Bien" },
+              { text: "manger", br: true },
+              { text: "est" },
+              { text: "un" },
+              { text: "plaisir", color: "#F5BBBB" },
+            ]}
+          />
 
           <ScrollReveal delay={0.2}>
             <p className="font-body text-white/75 text-lg leading-relaxed mb-10 max-w-xl mx-auto">
-              Chez Le Paradis du Fruit, nous croyons que manger sain ne rime pas avec ennuyeux. Chaque plat est une invitation au voyage, une explosion de saveurs qui prend soin de vous.
+              Chez L&apos;Éden Fruité, nous croyons que manger sain ne rime pas avec ennuyeux. Chaque plat est une invitation au voyage, une explosion de saveurs qui prend soin de vous.
             </p>
           </ScrollReveal>
 
@@ -98,16 +111,14 @@ export default function BotanicSection() {
         {/* Stats row */}
         <ScrollReveal delay={0.25}>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mt-16 pt-12 border-t border-white/10">
-            {[
-              { value: "100%", label: "Ingrédients frais" },
-              { value: "0", label: "Additif artificiel" },
-              { value: "70%", label: "Produits locaux" },
-              { value: "20", label: "Ans d'expertise" },
-            ].map((stat) => (
+            {stats.map((stat) => (
               <div key={stat.label} className="text-center">
-                <p className="font-display text-4xl lg:text-5xl mb-1" style={{ color: "#FED117" }}>
-                  {stat.value}
-                </p>
+                <CountUp
+                  value={stat.value}
+                  suffix={"suffix" in stat ? stat.suffix : ""}
+                  className="font-display text-4xl lg:text-5xl mb-1 block"
+                  style={{ color: "#FED117" }}
+                />
                 <p className="font-body text-white/60 text-sm">{stat.label}</p>
               </div>
             ))}

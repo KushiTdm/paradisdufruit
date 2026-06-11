@@ -1,4 +1,5 @@
 import RotatingBadge from "@/components/ui/RotatingBadge";
+import AnimatedTitle from "@/components/ui/AnimatedTitle";
 
 const footerLinks = {
   "Notre univers": [
@@ -65,13 +66,13 @@ export default function Footer() {
             <a
               href="#"
               className="inline-block mb-6"
-              aria-label="Le Paradis du Fruit"
+              aria-label="L'Éden Fruité"
             >
               <span className="font-display text-2xl text-white block">
-                Le Paradis
+                L&apos;Éden
               </span>
               <span className="font-script text-xl" style={{ color: "#FED117" }}>
-                du Fruit
+                Fruité
               </span>
             </a>
 
@@ -133,6 +134,21 @@ export default function Footer() {
           />
         </div>
 
+        {/* Grande signature */}
+        <div className="overflow-hidden my-6" aria-hidden="true">
+          <AnimatedTitle
+            className="font-display text-center select-none"
+            style={{
+              fontSize: "clamp(3rem, 11vw, 10rem)",
+              lineHeight: 0.9,
+              textTransform: "uppercase",
+              letterSpacing: "-0.02em",
+              color: "rgba(255,255,255,0.08)",
+            }}
+            segments={[{ text: "L'Éden" }, { text: "Fruité", color: "rgba(254,209,23,0.15)" }]}
+          />
+        </div>
+
         {/* Mentions santé */}
         <p
           className="font-body text-xs text-center leading-relaxed mb-6"
@@ -144,7 +160,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 pt-6 border-t border-white/10">
           <p className="font-body text-xs" style={{ color: "white", opacity: 0.4 }}>
-            © {new Date().getFullYear()} Le Paradis du Fruit. Tous droits réservés.
+            © {new Date().getFullYear()} L&apos;Éden Fruité. Tous droits réservés.
           </p>
           <div className="flex gap-6">
             {["Mentions légales", "Politique de confidentialité", "CGU", "Cookies"].map((item) => (

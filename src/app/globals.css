@@ -22,21 +22,9 @@
   --radius-xl: 48px;
   --radius-full: 9999px;
 
-  /* Animations */
-  --animate-marquee: marquee 30s linear infinite;
-  --animate-marquee-reverse: marquee-reverse 30s linear infinite;
+  /* Animations (le marquee est désormais piloté par GSAP) */
   --animate-spin-slow: spin-slow 8s linear infinite;
   --animate-float: float 4s ease-in-out infinite;
-}
-
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
-
-@keyframes marquee-reverse {
-  from { transform: translateX(-50%); }
-  to   { transform: translateX(0); }
 }
 
 @keyframes spin-slow {
@@ -63,8 +51,16 @@
   box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
+/* Le smooth scroll est géré par Lenis (fallback natif si motion réduite) */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+::selection {
+  background: oklch(86.4% 0.162 88.6);
+  color: oklch(28.5% 0.079 152.3);
 }
 
 body {
@@ -213,6 +209,20 @@ body {
   color: oklch(64.9% 0.144 25.8);
 }
 
+/* Masques pour les titres animés mot à mot (GSAP) */
+.word-mask {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  padding-bottom: 0.08em;
+  margin-bottom: -0.08em;
+}
+
+.word-inner {
+  display: inline-block;
+  will-change: transform;
+}
+
 .embla {
   overflow: hidden;
 }
@@ -224,14 +234,6 @@ body {
 
 .embla__slide {
   flex: 0 0 auto;
-}
-
-.animate-marquee {
-  animation: var(--animate-marquee);
-}
-
-.animate-marquee-reverse {
-  animation: var(--animate-marquee-reverse);
 }
 
 .animate-spin-slow {

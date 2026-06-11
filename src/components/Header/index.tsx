@@ -89,11 +89,11 @@ export default function Header() {
               href="#"
               className="absolute left-1/2 -translate-x-1/2 font-display text-xl lg:text-2xl tracking-tight transition-colors duration-300"
               style={{ color: scrolled ? "#204D36" : "white" }}
-              aria-label="Le Paradis du Fruit - Accueil"
+              aria-label="L'Éden Fruité - Accueil"
             >
-              Le Paradis<br className="hidden" />
+              L&apos;Éden
               <span className="font-script text-base lg:text-lg normal-case ml-1" style={{ color: "#EA6660" }}>
-                du Fruit
+                Fruité
               </span>
             </a>
 

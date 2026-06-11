@@ -1,7 +1,9 @@
 import Image from "next/image";
 import Carousel from "@/components/ui/Carousel";
 import ScrollReveal from "@/components/ui/ScrollReveal";
+import AnimatedTitle from "@/components/ui/AnimatedTitle";
 import RotatingBadge from "@/components/ui/RotatingBadge";
+import Parallax from "@/components/ui/Parallax";
 import { menuItems } from "@/data/menu";
 
 export default function MenuCarousel() {
@@ -14,12 +16,14 @@ export default function MenuCarousel() {
             <ScrollReveal delay={0}>
               <p className="subtitle-script mb-2">Fresh &amp; Yummi</p>
             </ScrollReveal>
-            <ScrollReveal delay={0.1}>
-              <h2 className="title-display" style={{ color: "#204D36" }}>
-                Nouvelle<br />
-                <span style={{ color: "#F5BBBB" }}>carte</span>
-              </h2>
-            </ScrollReveal>
+            <AnimatedTitle
+              className="title-display"
+              style={{ color: "#204D36" }}
+              segments={[
+                { text: "Nouvelle", br: true },
+                { text: "carte", color: "#F5BBBB" },
+              ]}
+            />
           </div>
 
           <ScrollReveal delay={0.2} direction="left">
@@ -38,13 +42,15 @@ export default function MenuCarousel() {
 
         {/* Decorative badge */}
         <div className="absolute right-4 lg:right-16 -mt-4 hidden lg:block">
-          <RotatingBadge
-            text="• NOUVEAU • PRINTANIER • FRAIS •"
-            emoji="🍋"
-            size={110}
-            bgColor="#65B330"
-            textColor="white"
-          />
+          <Parallax speed={0.6}>
+            <RotatingBadge
+              text="• NOUVEAU • PRINTANIER • FRAIS •"
+              emoji="🍋"
+              size={110}
+              bgColor="#65B330"
+              textColor="white"
+            />
+          </Parallax>
         </div>
 
         {/* Carousel */}
