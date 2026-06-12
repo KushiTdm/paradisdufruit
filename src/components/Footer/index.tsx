@@ -183,6 +183,23 @@ export default function Footer() {
             ))}
           </div>
         </div>
+
+        {/* Signature agence */}
+        <div className="text-center mt-6">
+          <p className="font-body text-xs" style={{ color: "white", opacity: 0.4 }}>
+            Conçu &amp; développé par{" "}
+            <a
+              href="https://neuraweb.tech"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-bold transition-opacity duration-200 hover:opacity-80"
+              style={{ color: "#FED117" }}
+            >
+              NeuraWeb
+            </a>
+            {" "}— agence web, automatisation &amp; intégration IA
+          </p>
+        </div>
       </div>
     </footer>
   );
