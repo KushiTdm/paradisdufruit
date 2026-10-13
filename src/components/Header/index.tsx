@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Logo from "@/components/Logo";
 import { motion, AnimatePresence } from "motion/react";
 
 const navLinks = [
@@ -92,10 +93,7 @@ export default function Header() {
               style={{ color: scrolled ? "#204D36" : "white" }}
               aria-label="L'Éden Fruité - Accueil"
             >
-              L&apos;Éden
-              <span className="font-script text-base lg:text-lg normal-case ml-1" style={{ color: "#EA6660" }}>
-                Fruité
-              </span>
+              <Logo color={scrolled ? "#204D36" : "white"} />
             </Link>
 
             {/* CTAs desktop */}

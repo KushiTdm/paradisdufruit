@@ -1,6 +1,7 @@
 import Link from "next/link";
 import RotatingBadge from "@/components/ui/RotatingBadge";
 import AnimatedTitle from "@/components/ui/AnimatedTitle";
+import Logo from "@/components/Logo";
 
 const footerLinks = {
   "Notre univers": [
@@ -76,12 +77,7 @@ export default function Footer() {
               className="inline-block mb-6"
               aria-label="L'Éden Fruité"
             >
-              <span className="font-display text-2xl text-white block">
-                L&apos;Éden
-              </span>
-              <span className="font-script text-xl" style={{ color: "#FED117" }}>
-                Fruité
-              </span>
+              <Logo color="white" accent="#FED117" />
             </Link>
 
             <p className="font-body text-sm leading-relaxed mb-6" style={{ color: "white", opacity: 0.55 }}>
@@ -187,17 +183,16 @@ export default function Footer() {
         {/* Signature agence */}
         <div className="text-center mt-6">
           <p className="font-body text-xs" style={{ color: "white", opacity: 0.4 }}>
-            Conçu &amp; développé par{" "}
+            Site créé par{" "}
             <a
-              href="https://neuraweb.tech"
+              href="https://neuraweb.fr"
               target="_blank"
               rel="noopener noreferrer"
               className="font-bold transition-opacity duration-200 hover:opacity-80"
               style={{ color: "#FED117" }}
             >
-              NeuraWeb
+              NeuraWeb.fr
             </a>
-            {" "}— agence web, automatisation &amp; intégration IA
           </p>
         </div>
       </div>

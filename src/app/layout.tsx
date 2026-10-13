@@ -25,7 +25,7 @@ const jost = Jost({
 });
 
 export const metadata: Metadata = {
-  title: "L'Éden Fruité — Restaurant healthy & fruité",
+  title: "L'Éden Fruité — Restaurant healthy : bowls, salades & smoothies frais",
   description:
     "Découvrez L'Éden Fruité : restaurant healthy, fruité et coloré. Bowls, salades, smoothies et plus — frais, local et fait maison. 80+ restaurants en France.",
   keywords: ["restaurant healthy", "bowl", "smoothie", "fruits", "salade", "cuisine saine", "Paris"],
